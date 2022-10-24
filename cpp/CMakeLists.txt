@@ -678,6 +678,7 @@ SECTIONS
 target_link_options(cudf PRIVATE "$<HOST_LINK:${CUDF_BINARY_DIR}/fatbin.ld>")
 
 add_library(cudf::cudf ALIAS cudf)
+set_target_properties(cudf PROPERTIES EXPORT_FIND_PACKAGE_NAME "cudf")
 
 # ##################################################################################################
 # * tests and benchmarks --------------------------------------------------------------------------
@@ -788,6 +789,7 @@ install(
 
 install(
   EXPORT cudf-testing-exports
+  EXPORT_DEPENDENCIES
   FILE cudf-testing-targets.cmake
   NAMESPACE cudf::
   DESTINATION "${lib_dir}/cmake/cudf"
@@ -901,6 +903,7 @@ rapids_export(
 export(
   EXPORT cudf-testing-exports
   FILE ${CUDF_BINARY_DIR}/cudf-testing-targets.cmake
+  EXPORT_DEPENDENCIES
   NAMESPACE cudf::
 )
 rapids_export_write_dependencies(

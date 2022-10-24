@@ -16,7 +16,7 @@
 function(find_and_configure_cucollections)
   include(${rapids-cmake-dir}/cpm/cuco.cmake)
   if(BUILD_SHARED_LIBS)
-    rapids_cpm_cuco(BUILD_EXPORT_SET cudf-exports)
+    rapids_cpm_cuco()
   else()
     rapids_cpm_cuco(BUILD_EXPORT_SET cudf-exports INSTALL_EXPORT_SET cudf-exports)
   endif()

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/lists/stream_compaction.hpp>
+
 #include "lists/utilities.hpp"
 
 #include <cudf/column/column_factories.hpp>

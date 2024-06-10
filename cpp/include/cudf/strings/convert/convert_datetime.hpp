@@ -24,6 +24,7 @@
 #include <string>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 /**
@@ -256,3 +257,4 @@ std::unique_ptr<column> from_timestamps(
 /** @} */  // end of doxygen group
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

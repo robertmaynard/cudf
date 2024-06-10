@@ -25,6 +25,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup copy_concatenate
@@ -98,3 +99,4 @@ std::unique_ptr<table> concatenate(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

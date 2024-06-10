@@ -26,7 +26,7 @@
 #include <cudf/detail/gather.hpp>
 #include <cudf/detail/iterator.cuh>
 #include <cudf/detail/null_mask.hpp>
-#include <cudf/detail/structs/utilities.hpp>
+#include <cudf/structs/utilities.hpp>
 #include <cudf/table/table_device_view.cuh>
 #include <cudf/types.hpp>
 #include <cudf/utilities/span.hpp>
@@ -230,7 +230,7 @@ struct group_scan_functor<K,
     // column to them.
     if (values.has_nulls()) {
       for (std::unique_ptr<column>& child : scanned_children) {
-        child = structs::detail::superimpose_nulls(
+        child = structs::superimpose_nulls(
           values.null_mask(), values.null_count(), std::move(child), stream, mr);
       }
     }

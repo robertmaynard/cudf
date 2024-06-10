@@ -25,6 +25,7 @@
 #include <memory>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup reorder_compact
@@ -400,3 +401,4 @@ cudf::size_type distinct_count(table_view const& input,
 
 /** @} */
 }  // namespace cudf
+#pragma GCC visibility pop

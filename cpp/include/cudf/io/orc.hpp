@@ -30,8 +30,8 @@
 #include <unordered_map>
 #include <vector>
 
-namespace cudf {
-namespace io {
+#pragma GCC visibility push(default)
+namespace cudf::io {
 /**
  * @addtogroup io_readers
  * @{
@@ -1424,8 +1424,15 @@ class orc_chunked_writer {
   /**
    * @brief Default constructor, this should never be used.
    *        This is added just to satisfy cython.
+   *        This is added to ensure detail types aren't leaked in ABI.
    */
-  orc_chunked_writer() = default;
+  orc_chunked_writer();
+
+  /**
+   * @brief Default destructor.
+   *        This is added to ensure detail types aren't leaked in ABI.
+   */
+  ~orc_chunked_writer();
 
   /**
    * @brief Constructor with chunked writer options
@@ -1454,5 +1461,5 @@ class orc_chunked_writer {
 };
 
 /** @} */  // end of group
-}  // namespace io
-}  // namespace cudf
+}  // namespace cudf::io
+#pragma GCC visibility pop

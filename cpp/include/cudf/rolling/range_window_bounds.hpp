@@ -18,6 +18,7 @@
 
 #include <cudf/scalar/scalar.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup aggregation_rolling
@@ -112,3 +113,4 @@ struct range_window_bounds {
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

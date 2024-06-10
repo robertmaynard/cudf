@@ -32,6 +32,7 @@
  * @brief Table device view class definitions
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace detail {
 
@@ -272,3 +273,4 @@ auto contiguous_copy_column_device_views(HostTableView source_view, rmm::cuda_st
 }
 
 }  // namespace cudf
+#pragma GCC visibility pop

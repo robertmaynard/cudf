@@ -27,6 +27,8 @@
 #include <map>
 #include <vector>
 
+#pragma GCC visibility push(default)
+
 // Forward declaration of parse_options from parsing_utils.cuh
 namespace cudf::io {
 struct parse_options;
@@ -349,3 +351,4 @@ struct path_from_tree {
 }  // namespace detail
 
 }  // namespace cudf::io::json
+#pragma GCC visibility pop

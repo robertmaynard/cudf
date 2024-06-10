@@ -22,6 +22,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup scalar_factories
@@ -228,3 +229,4 @@ std::unique_ptr<scalar> make_struct_scalar(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

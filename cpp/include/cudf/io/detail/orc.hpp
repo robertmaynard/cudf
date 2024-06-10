@@ -32,9 +32,11 @@
 namespace cudf::io {
 
 // Forward declaration
+#pragma GCC visibility push(default)
 class orc_reader_options;
 class orc_writer_options;
 class chunked_orc_writer_options;
+#pragma GCC visibility pop
 
 namespace orc::detail {
 

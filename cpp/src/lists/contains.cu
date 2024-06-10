@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/lists/contains.hpp>
+
 #include <cudf/column/column_factories.hpp>
 #include <cudf/detail/iterator.cuh>
 #include <cudf/detail/null_mask.hpp>

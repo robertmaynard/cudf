@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include <cudf/lists/gather.hpp>
+
 #include <cudf/detail/copy_range.cuh>
 #include <cudf/detail/gather.cuh>
 #include <cudf/detail/indexalator.cuh>
@@ -94,7 +96,7 @@ std::unique_ptr<column> segmented_gather(lists_column_view const& value_column,
   auto child       = std::move(child_table->release().front());
 
   // Create list offsets from gather_map.
-  auto output_offset = cudf::detail::allocate_like(
+  auto output_offset = cudf::allocate_like(
     gather_map.offsets(), gather_map.size() + 1, mask_allocation_policy::RETAIN, stream, mr);
   auto output_offset_view = output_offset->mutable_view();
   cudf::detail::copy_range_in_place(gather_map.offsets(),

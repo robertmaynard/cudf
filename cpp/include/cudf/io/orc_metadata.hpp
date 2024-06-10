@@ -28,6 +28,7 @@
 #include <variant>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace io {
 /**
@@ -388,3 +389,4 @@ orc_metadata read_orc_metadata(source_info const& src_info,
 /** @} */  // end of group
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -23,6 +23,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup column_factories Factories
@@ -123,3 +124,4 @@ std::unique_ptr<column> make_dictionary_column(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

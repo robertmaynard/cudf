@@ -32,6 +32,7 @@
  * passed by value.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace detail {
 /**
@@ -375,3 +376,4 @@ extern template bool is_relationally_comparable<mutable_table_view>(mutable_tabl
 // @endcond
 }  // namespace detail
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -18,6 +18,7 @@
 #include <cudf/column/column_view.hpp>
 #include <cudf/lists/lists_column_view.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 //! Tdigest interfaces
 namespace tdigest {
@@ -133,3 +134,4 @@ class tdigest_column_view : private column_view {
 /** @} */  // end of group
 }  // namespace tdigest
 }  // namespace cudf
+#pragma GCC visibility pop

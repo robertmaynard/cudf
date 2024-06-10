@@ -19,6 +19,7 @@
 #include <cudf/detail/utilities/assert.cuh>
 #include <cudf/fixed_point/temporary.hpp>
 #include <cudf/types.hpp>
+#include <cudf/utilities/export.hpp>
 
 #include <cuda/std/limits>
 #include <cuda/std/type_traits>
@@ -183,7 +184,7 @@ CUDF_HOST_DEVICE inline constexpr T shift(T const& val, scale_type const& scale)
  */
 template <typename Rep,
           typename cuda::std::enable_if_t<is_supported_representation_type<Rep>()>* = nullptr>
-struct scaled_integer {
+struct CUDF_EXPORT scaled_integer {
   Rep value;         ///< The value of the fixed point number
   scale_type scale;  ///< The scale of the value
   /**
@@ -205,7 +206,7 @@ struct scaled_integer {
  * @tparam Rad The radix/base (either `Radix::BASE_2` or `Radix::BASE_10`)
  */
 template <typename Rep, Radix Rad>
-class fixed_point {
+class CUDF_EXPORT fixed_point {
   Rep _value{};
   scale_type _scale;
 

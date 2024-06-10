@@ -32,6 +32,7 @@
  * @brief Class definitions for cudf::scalar
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup scalar_classes
@@ -894,3 +895,4 @@ class struct_scalar : public scalar {
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

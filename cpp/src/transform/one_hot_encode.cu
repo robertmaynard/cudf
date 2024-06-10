@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/transform.hpp>
+
 #include <cudf/column/column_device_view.cuh>
 #include <cudf/column/column_factories.hpp>
 #include <cudf/detail/copy.hpp>

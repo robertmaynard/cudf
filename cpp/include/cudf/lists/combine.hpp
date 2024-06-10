@@ -21,6 +21,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 //! Lists column APIs
@@ -103,3 +104,4 @@ std::unique_ptr<column> concatenate_list_elements(
 /** @} */  // end of group
 }  // namespace lists
 }  // namespace cudf
+#pragma GCC visibility pop

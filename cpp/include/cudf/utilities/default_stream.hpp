@@ -21,6 +21,7 @@
 #include <rmm/cuda_stream.hpp>
 #include <rmm/cuda_stream_view.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup default_stream
@@ -44,3 +45,4 @@ bool is_ptds_enabled();
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

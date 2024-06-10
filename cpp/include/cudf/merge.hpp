@@ -24,6 +24,7 @@
 #include <memory>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup column_merge
@@ -110,3 +111,4 @@ std::unique_ptr<cudf::table> merge(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

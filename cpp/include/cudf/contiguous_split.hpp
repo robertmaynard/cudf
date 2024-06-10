@@ -24,6 +24,7 @@
 #include <memory>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -339,3 +340,4 @@ table_view unpack(uint8_t const* metadata, uint8_t const* gpu_data);
 
 /** @} */
 }  // namespace cudf
+#pragma GCC visibility pop

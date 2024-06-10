@@ -21,6 +21,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 //! Strings column APIs
@@ -92,3 +93,4 @@ std::unique_ptr<column> code_points(
 
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

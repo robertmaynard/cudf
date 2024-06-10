@@ -18,6 +18,7 @@
 #include <cstdint>
 #include <type_traits>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 /**
@@ -81,3 +82,4 @@ constexpr string_character_types& operator|=(string_character_types& lhs,
 /** @} */  // end of doxygen group
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

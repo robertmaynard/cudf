@@ -15,6 +15,7 @@
  */
 #pragma once
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 /**
@@ -35,3 +36,4 @@ enum class side_type {
 /** @} */  // end of doxygen group
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

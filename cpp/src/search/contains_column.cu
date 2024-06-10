@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/search.hpp>
+
 #include <cudf/detail/null_mask.hpp>
 #include <cudf/detail/nvtx/ranges.hpp>
 #include <cudf/detail/search.hpp>

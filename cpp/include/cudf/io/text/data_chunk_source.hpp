@@ -21,6 +21,7 @@
 #include <rmm/cuda_stream_pool.hpp>
 #include <rmm/device_buffer.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace io {
 namespace text {
@@ -113,3 +114,4 @@ class data_chunk_source {
 }  // namespace text
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

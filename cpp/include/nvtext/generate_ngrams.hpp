@@ -21,6 +21,7 @@
 
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_ngrams
@@ -129,3 +130,4 @@ std::unique_ptr<cudf::column> hash_character_ngrams(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

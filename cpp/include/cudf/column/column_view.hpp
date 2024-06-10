@@ -30,6 +30,7 @@
  * @brief column view class definitions
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace detail {
 /**
@@ -767,3 +768,4 @@ std::size_t shallow_hash(column_view const& input);
 bool is_shallow_equivalent(column_view const& lhs, column_view const& rhs);
 }  // namespace detail
 }  // namespace cudf
+#pragma GCC visibility pop

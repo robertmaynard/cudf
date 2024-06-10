@@ -16,6 +16,7 @@
 
 #pragma once
 
+#include <cudf/aggregation.hpp>
 #include <cudf/rolling/range_window_bounds.hpp>
 #include <cudf/types.hpp>
 
@@ -24,6 +25,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup aggregation_rolling
@@ -596,3 +598,4 @@ std::unique_ptr<column> rolling_window(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

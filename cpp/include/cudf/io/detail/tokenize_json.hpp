@@ -23,6 +23,7 @@
 #include <rmm/device_uvector.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf::io::json {
 
 /// Type used to represent the atomic symbol type used within the finite-state machine
@@ -139,3 +140,4 @@ std::pair<rmm::device_uvector<PdaTokenT>, rmm::device_uvector<SymbolOffsetT>> ge
 }  // namespace detail
 
 }  // namespace cudf::io::json
+#pragma GCC visibility pop

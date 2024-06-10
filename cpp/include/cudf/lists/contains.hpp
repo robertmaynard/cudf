@@ -21,6 +21,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace lists {
 /**
@@ -183,3 +184,4 @@ std::unique_ptr<column> index_of(
 /** @} */  // end of group
 }  // namespace lists
 }  // namespace cudf
+#pragma GCC visibility pop

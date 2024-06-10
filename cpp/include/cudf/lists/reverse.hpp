@@ -23,6 +23,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf::lists {
 /**
  * @addtogroup lists_modify
@@ -55,3 +56,4 @@ std::unique_ptr<column> reverse(
 /** @} */  // end of doxygen group
 
 }  // namespace cudf::lists
+#pragma GCC visibility pop

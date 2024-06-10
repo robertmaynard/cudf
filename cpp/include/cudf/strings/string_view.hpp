@@ -26,6 +26,7 @@
  * @brief Class definition for cudf::string_view.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 using char_utf8 = uint32_t;  ///< UTF-8 characters are 1-4 bytes
@@ -407,3 +408,4 @@ class string_view {
 };
 
 }  // namespace cudf
+#pragma GCC visibility pop

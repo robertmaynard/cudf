@@ -25,6 +25,7 @@
 #include <sstream>
 #endif  // defined(__GNUC__) && defined(CUDF_BUILD_STACKTRACE_DEBUG)
 
+#pragma GCC visibility push(default)
 namespace cudf::detail {
 
 std::string get_stacktrace(capture_last_stackframe capture_last_frame)
@@ -86,3 +87,4 @@ std::string get_stacktrace(capture_last_stackframe capture_last_frame)
 }
 
 }  // namespace cudf::detail
+#pragma GCC visibility pop

@@ -48,6 +48,7 @@ struct ArrowSchema;
 
 struct ArrowArray;
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup interop_dlpack
@@ -561,3 +562,4 @@ unique_column_view_t from_arrow_device_column(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -21,6 +21,7 @@
 
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace nvtext {
 
 /**
@@ -161,3 +162,4 @@ tokenizer_result subword_tokenize(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

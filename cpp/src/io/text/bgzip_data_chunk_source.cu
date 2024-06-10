@@ -16,7 +16,6 @@
 
 #include "io/comp/nvcomp_adapter.hpp"
 #include "io/text/device_data_chunks.hpp"
-#include "io/utilities/config_utils.hpp"
 
 #include <cudf/detail/nvtx/ranges.hpp>
 #include <cudf/detail/utilities/integer_utils.hpp>

@@ -24,6 +24,7 @@
 
 #include <optional>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup aggregation_reduction
@@ -233,3 +234,4 @@ std::pair<std::unique_ptr<scalar>, std::unique_ptr<scalar>> minmax(
 /** @} */  // end of group
 
 }  // namespace cudf
+#pragma GCC visibility pop

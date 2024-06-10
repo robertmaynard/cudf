@@ -26,6 +26,7 @@
 #include <memory>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -347,3 +348,4 @@ std::unique_ptr<table> stable_segmented_sort_by_key(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

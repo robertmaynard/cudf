@@ -30,6 +30,7 @@
 #include <thrust/iterator/counting_iterator.h>
 #include <thrust/transform_reduce.h>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -636,3 +637,4 @@ class row_hasher {
 };
 
 }  // namespace cudf
+#pragma GCC visibility pop

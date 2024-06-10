@@ -25,6 +25,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup column_reshape
@@ -106,3 +107,4 @@ std::unique_ptr<column> byte_cast(
 /** @} */  // end of group
 
 }  // namespace cudf
+#pragma GCC visibility pop

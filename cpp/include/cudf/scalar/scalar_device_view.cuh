@@ -24,6 +24,7 @@
  * @brief Scalar device view class definitions
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace detail {
 /**
@@ -441,3 +442,4 @@ auto get_scalar_device_view(fixed_point_scalar<T>& s)
 }
 
 }  // namespace cudf
+#pragma GCC visibility pop

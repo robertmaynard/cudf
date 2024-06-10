@@ -31,6 +31,7 @@
 #include <utility>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 //! `groupby` APIs
 namespace groupby {
@@ -421,3 +422,4 @@ class groupby {
 /** @} */
 }  // namespace groupby
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -21,6 +21,7 @@
 
 #include <cuda_runtime.h>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 namespace detail {
@@ -119,3 +120,4 @@ class lists_column_device_view : private column_device_view {
 }  // namespace detail
 
 }  // namespace cudf
+#pragma GCC visibility pop

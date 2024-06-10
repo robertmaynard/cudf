@@ -35,6 +35,7 @@
 // This file should only include device code logic.
 // Host-only or host/device code should be defined in the string_view.hpp header file.
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 namespace detail {
@@ -449,3 +450,4 @@ __device__ inline size_type string_view::character_offset(size_type bytepos) con
 }
 
 }  // namespace cudf
+#pragma GCC visibility pop

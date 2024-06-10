@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/reshape.hpp>
+
 #include <cudf/column/column_device_view.cuh>
 #include <cudf/copying.hpp>
 #include <cudf/detail/copy.hpp>

@@ -17,6 +17,7 @@
 
 #include <cstdint>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 
@@ -87,3 +88,4 @@ enum class capture_groups : uint32_t {
 /** @} */  // end of doxygen group
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -32,6 +32,7 @@
 #include <utility>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -1179,3 +1180,4 @@ std::size_t conditional_left_anti_join_size(
   rmm::device_async_resource_ref mr = rmm::mr::get_current_device_resource());
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

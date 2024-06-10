@@ -24,6 +24,7 @@
 
 #include <cuda/std/type_traits>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -623,3 +624,4 @@ struct is_convertible<cudf::detail::timestamp<Duration1>, cudf::detail::timestam
 /** @} */
 
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -23,6 +23,7 @@
  * @brief Class definition for cudf::strings_column_view
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -127,3 +128,4 @@ namespace strings {
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

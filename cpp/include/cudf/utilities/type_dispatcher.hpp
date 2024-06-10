@@ -31,6 +31,7 @@
  * @brief Defines the mapping between `cudf::type_id` runtime type information
  * and concrete C++ types.
  */
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup utility_dispatcher
@@ -627,3 +628,4 @@ std::string type_to_name(data_type type);
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/quantiles.hpp>
+
 #include "quantiles/tdigest/tdigest_util.cuh"
 
 #include <cudf/column/column_factories.hpp>

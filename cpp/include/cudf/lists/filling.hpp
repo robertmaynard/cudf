@@ -25,6 +25,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf::lists {
 /**
  * @addtogroup lists_filling
@@ -114,3 +115,4 @@ std::unique_ptr<column> sequences(
 
 /** @} */  // end of group
 }  // namespace cudf::lists
+#pragma GCC visibility pop

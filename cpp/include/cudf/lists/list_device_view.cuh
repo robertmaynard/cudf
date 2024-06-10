@@ -25,6 +25,7 @@
 #include <thrust/iterator/transform_iterator.h>
 #include <thrust/pair.h>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -378,3 +379,4 @@ CUDF_HOST_DEVICE auto inline make_list_size_iterator(detail::lists_column_device
 }
 
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -21,6 +21,7 @@
 #include "io/utilities/hostdevice_span.hpp"
 
 #include <cudf/detail/timezone.hpp>
+#include <cudf/detail/utilities/logger.hpp>
 #include <cudf/detail/utilities/integer_utils.hpp>
 #include <cudf/utilities/error.hpp>
 

@@ -18,6 +18,8 @@
 
 #include "parquet.hpp"
 
+#include <cudf/utilities/export.hpp>
+
 #include <algorithm>
 #include <cstddef>
 #include <optional>
@@ -39,7 +41,7 @@ namespace cudf::io::parquet::detail {
  * The parser handles both V1 and V2 Parquet datasets, although not all
  * compression codecs are supported yet.
  */
-class CompactProtocolReader {
+class CUDF_EXPORT CompactProtocolReader {
  public:
   explicit CompactProtocolReader(uint8_t const* base = nullptr, size_t len = 0) { init(base, len); }
   void init(uint8_t const* base, size_t len)

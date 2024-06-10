@@ -23,6 +23,7 @@
 
 #include <thrust/optional.h>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -174,3 +175,4 @@ std::unique_ptr<cudf::column> get_json_object(
 
 /** @} */  // end of doxygen group
 }  // namespace cudf
+#pragma GCC visibility pop

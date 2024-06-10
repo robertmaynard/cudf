@@ -18,6 +18,7 @@
 #include <cudf/column/column_device_view.cuh>
 #include <cudf/types.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 namespace detail {
@@ -85,3 +86,4 @@ class structs_column_device_view : private column_device_view {
 }  // namespace detail
 
 }  // namespace cudf
+#pragma GCC visibility pop

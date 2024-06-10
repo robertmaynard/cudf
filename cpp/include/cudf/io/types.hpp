@@ -32,6 +32,7 @@
 #include <unordered_map>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 //! IO interfaces
 namespace io {
@@ -39,8 +40,10 @@ class data_sink;
 class datasource;
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop
 
 //! cuDF interfaces
+#pragma GCC visibility push(default)
 namespace cudf {
 //! IO interfaces
 namespace io {
@@ -1073,3 +1076,4 @@ class reader_column_schema {
 /** @} */  // end of group
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -24,6 +24,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup transformation_fill
@@ -245,3 +246,4 @@ std::unique_ptr<cudf::column> calendrical_month_sequence(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

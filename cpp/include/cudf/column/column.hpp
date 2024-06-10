@@ -36,6 +36,7 @@
  * @brief Class definition for cudf::column
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -333,3 +334,4 @@ class column {
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

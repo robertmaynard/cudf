@@ -24,6 +24,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup transformation_replace
@@ -309,3 +310,4 @@ void normalize_nans_and_zeros(mutable_column_view& in_out,
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

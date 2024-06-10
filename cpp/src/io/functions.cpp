@@ -501,6 +501,20 @@ table_with_metadata chunked_orc_reader::read_chunk() const
 /**
  * @copydoc cudf::io::orc_chunked_writer::orc_chunked_writer
  */
+orc_chunked_writer::orc_chunked_writer():writer(nullptr)
+{
+}
+
+/**
+ * @copydoc cudf::io::orc_chunked_writer::~orc_chunked_writer
+ */
+orc_chunked_writer::~orc_chunked_writer()
+{
+}
+
+/**
+ * @copydoc cudf::io::orc_chunked_writer::orc_chunked_writer
+ */
 orc_chunked_writer::orc_chunked_writer(chunked_orc_writer_options const& options,
                                        rmm::cuda_stream_view stream)
 {
@@ -627,6 +641,11 @@ std::unique_ptr<std::vector<uint8_t>> write_parquet(parquet_writer_options const
 /**
  * @copydoc cudf::io::chunked_parquet_reader::chunked_parquet_reader
  */
+chunked_parquet_reader::chunked_parquet_reader(): reader(nullptr) {}
+
+/**
+ * @copydoc cudf::io::chunked_parquet_reader::chunked_parquet_reader
+ */
 chunked_parquet_reader::chunked_parquet_reader(std::size_t chunk_read_limit,
                                                parquet_reader_options const& options,
                                                rmm::cuda_stream_view stream,
@@ -677,6 +696,16 @@ table_with_metadata chunked_parquet_reader::read_chunk() const
   CUDF_EXPECTS(reader != nullptr, "Reader has not been constructed properly.");
   return reader->read_chunk();
 }
+
+/**
+ * @copydoc cudf::io::parquet_chunked_writer::parquet_chunked_writer
+ */
+parquet_chunked_writer::parquet_chunked_writer():writer(nullptr){}
+
+ /**
+ * @copydoc cudf::io::parquet_chunked_writer::~parquet_chunked_writer
+ */
+ parquet_chunked_writer::~parquet_chunked_writer() {}
 
 /**
  * @copydoc cudf::io::parquet_chunked_writer::parquet_chunked_writer

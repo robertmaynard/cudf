@@ -29,6 +29,7 @@
 #include <variant>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace io {
 /**
@@ -1025,3 +1026,4 @@ void write_json(json_writer_options const& options,
 /** @} */  // end of group
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -20,6 +20,7 @@
 
 #include <optional>
 
+#pragma GCC visibility push(default)
 namespace cudf::io {
 
 /**
@@ -63,3 +64,4 @@ struct host_mr_options {
 bool config_default_host_memory_resource(host_mr_options const& opts);
 
 }  // namespace cudf::io
+#pragma GCC visibility pop

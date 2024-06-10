@@ -23,6 +23,7 @@
 
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace nvtext {
 
 /**
@@ -133,3 +134,4 @@ std::unique_ptr<cudf::column> byte_pair_encoding(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

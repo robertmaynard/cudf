@@ -26,6 +26,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup transformation_unaryops
@@ -241,3 +242,4 @@ std::unique_ptr<column> is_not_nan(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -23,6 +23,7 @@
 #include <rmm/mr/device/device_memory_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf::lists {
 /**
  * @addtogroup set_operations
@@ -178,3 +179,4 @@ std::unique_ptr<column> difference_distinct(
 
 /** @} */  // end of group
 }  // namespace cudf::lists
+#pragma GCC visibility pop

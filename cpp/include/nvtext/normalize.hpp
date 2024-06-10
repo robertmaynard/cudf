@@ -21,6 +21,7 @@
 #include <rmm/resource_ref.hpp>
 
 //! NVText APIs
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_normalize
@@ -109,3 +110,4 @@ std::unique_ptr<cudf::column> normalize_characters(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

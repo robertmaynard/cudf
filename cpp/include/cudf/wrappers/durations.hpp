@@ -18,6 +18,7 @@
 
 #include <cuda/std/chrono>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -66,3 +67,4 @@ static_assert(sizeof(duration_ns) == sizeof(typename duration_ns::rep), "");
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

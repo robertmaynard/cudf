@@ -20,6 +20,7 @@
 
 #include <algorithm>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -148,3 +149,4 @@ inline bool all_have_same_types(ForwardIt first, ForwardIt last)
 }
 
 }  // namespace cudf
+#pragma GCC visibility pop

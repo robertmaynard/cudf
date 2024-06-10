@@ -27,6 +27,7 @@
  * @brief Utilities for bit and bitmask operations.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace detail {
 // @cond
@@ -218,3 +219,4 @@ __device__ inline void clear_bit(bitmask_type* bitmask, size_type bit_index)
 #endif
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -54,6 +54,7 @@
 #include <type_traits>
 #include <utility>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 namespace experimental {
@@ -2027,3 +2028,4 @@ class row_hasher {
 
 }  // namespace experimental
 }  // namespace cudf
+#pragma GCC visibility pop

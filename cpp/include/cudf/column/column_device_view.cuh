@@ -44,6 +44,7 @@
  * @brief Column device view class definitions
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -1528,3 +1529,4 @@ ColumnDeviceView* child_columns_to_device_array(ColumnViewIterator child_begin,
 
 }  // namespace detail
 }  // namespace cudf
+#pragma GCC visibility pop

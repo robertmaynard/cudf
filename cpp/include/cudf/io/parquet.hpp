@@ -32,6 +32,7 @@
 #include <utility>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf::io {
 /**
  * @addtogroup io_readers
@@ -480,8 +481,9 @@ class chunked_parquet_reader {
    * @brief Default constructor, this should never be used.
    *
    * This is added just to satisfy cython.
+   * This is added to ensure detail types aren't leaked in ABI.
    */
-  chunked_parquet_reader() = default;
+  chunked_parquet_reader();
 
   /**
    * @brief Constructor for chunked reader.
@@ -1355,8 +1357,14 @@ class parquet_chunked_writer {
   /**
    * @brief Default constructor, this should never be used.
    *        This is added just to satisfy cython.
+   *        This is added to ensure detail types aren't leaked in ABI.
    */
-  parquet_chunked_writer() = default;
+  parquet_chunked_writer();
+  /**
+   * @brief Default destructor.
+   *        This is added to ensure detail types aren't leaked in ABI.
+   */  
+  ~parquet_chunked_writer();
 
   /**
    * @brief Constructor with chunked writer options
@@ -1399,3 +1407,4 @@ class parquet_chunked_writer {
 /** @} */  // end of group
 
 }  // namespace cudf::io
+#pragma GCC visibility pop

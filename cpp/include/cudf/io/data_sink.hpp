@@ -27,6 +27,7 @@
 #include <string>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 //! IO interfaces
 namespace io {
@@ -210,3 +211,4 @@ class data_sink {
 /** @} */  // end of group
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

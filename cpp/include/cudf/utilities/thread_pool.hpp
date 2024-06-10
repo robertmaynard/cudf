@@ -34,6 +34,7 @@
 #include <type_traits>  // std::decay_t, std::enable_if_t, std::is_void_v, std::invoke_result_t
 #include <utility>      // std::move, std::swap
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace detail {
 
@@ -379,3 +380,4 @@ class thread_pool {
 
 }  // namespace detail
 }  // namespace cudf
+#pragma GCC visibility pop

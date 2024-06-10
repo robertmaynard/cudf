@@ -21,6 +21,7 @@
 
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_stemmer
@@ -173,3 +174,4 @@ std::unique_ptr<cudf::column> porter_stemmer_measure(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

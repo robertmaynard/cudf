@@ -16,6 +16,8 @@
 
 #include "reader_impl_helpers.hpp"
 
+#include <cudf/detail/utilities/logger.hpp>
+
 #include <rmm/resource_ref.hpp>
 
 namespace cudf::io::orc::detail {

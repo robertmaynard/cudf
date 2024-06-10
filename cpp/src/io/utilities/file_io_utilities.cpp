@@ -4,7 +4,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+*
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -15,16 +15,18 @@
  */
 
 #include "file_io_utilities.hpp"
+#include "getenv_or.hpp"
 
-#include "io/utilities/config_utils.hpp"
-
+#include <cudf/detail/utilities/logger.hpp>
 #include <cudf/detail/utilities/integer_utils.hpp>
+#include <cudf/io/config_utils.hpp>
 
 #include <rmm/device_buffer.hpp>
 
 #include <dlfcn.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/stat.h>
 
 #include <filesystem>
 #include <fstream>

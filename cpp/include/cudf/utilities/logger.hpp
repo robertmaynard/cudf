@@ -18,6 +18,7 @@
 
 #include <spdlog/spdlog.h>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -44,3 +45,4 @@ namespace cudf {
 spdlog::logger& logger();
 
 }  // namespace cudf
+#pragma GCC visibility pop

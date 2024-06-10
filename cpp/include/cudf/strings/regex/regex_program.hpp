@@ -21,6 +21,7 @@
 #include <memory>
 #include <string>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 
@@ -136,3 +137,4 @@ struct regex_program {
 /** @} */  // end of doxygen group
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

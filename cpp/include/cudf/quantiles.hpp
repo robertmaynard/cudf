@@ -24,6 +24,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup column_quantiles
@@ -130,3 +131,4 @@ std::unique_ptr<column> percentile_approx(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

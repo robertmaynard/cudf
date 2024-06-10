@@ -22,6 +22,7 @@
 #include <optional>
 #include <string>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 class table;
 
@@ -53,3 +54,4 @@ std::unique_ptr<table> make_timezone_transition_table(
   rmm::device_async_resource_ref mr = rmm::mr::get_current_device_resource());
 
 }  // namespace cudf
+#pragma GCC visibility pop

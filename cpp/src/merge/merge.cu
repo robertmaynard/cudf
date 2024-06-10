@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/merge.hpp>
+
 #include <cudf/copying.hpp>
 #include <cudf/detail/copy.hpp>
 #include <cudf/detail/gather.cuh>

@@ -21,6 +21,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -79,3 +80,4 @@ std::unique_ptr<column> round(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

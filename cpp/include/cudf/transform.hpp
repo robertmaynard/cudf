@@ -24,6 +24,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup transformation_transform
@@ -249,3 +250,4 @@ std::unique_ptr<column> segmented_row_bit_count(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

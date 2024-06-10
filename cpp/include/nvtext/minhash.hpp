@@ -23,6 +23,7 @@
 
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_minhash
@@ -152,3 +153,4 @@ std::unique_ptr<cudf::column> minhash64(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

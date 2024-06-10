@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
-#include "config_utils.hpp"
+#include <cudf/io/config_utils.hpp>
 
+#include "getenv_or.hpp"
+
+#include <cudf/detail/utilities/logger.hpp>
 #include <cudf/detail/utilities/stream_pool.hpp>
 #include <cudf/io/memory_resource.hpp>
 #include <cudf/utilities/error.hpp>
@@ -27,11 +30,10 @@
 #include <rmm/resource_ref.hpp>
 
 #include <cstdlib>
+#include <sstream>
 #include <string>
 
 namespace cudf::io {
-
-namespace detail {
 
 namespace cufile_integration {
 
@@ -89,8 +91,6 @@ bool is_all_enabled() { return get_env_policy() == usage_policy::ALWAYS; }
 bool is_stable_enabled() { return is_all_enabled() or get_env_policy() == usage_policy::STABLE; }
 
 }  // namespace nvcomp_integration
-
-}  // namespace detail
 
 namespace {
 class fixed_pinned_pool_memory_resource {

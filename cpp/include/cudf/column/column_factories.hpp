@@ -27,6 +27,7 @@
 
 #include <thrust/pair.h>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup column_factories
@@ -572,3 +573,4 @@ std::unique_ptr<column> make_dictionary_from_scalar(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -15,6 +15,7 @@
  */
 #pragma once
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 namespace detail {
@@ -32,3 +33,4 @@ void generate_special_mapping_hash_table();
 }  // namespace detail
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

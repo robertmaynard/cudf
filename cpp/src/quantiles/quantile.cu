@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/quantiles.hpp>
+
 #include "quantiles/quantiles_util.hpp"
 
 #include <cudf/column/column_factories.hpp>

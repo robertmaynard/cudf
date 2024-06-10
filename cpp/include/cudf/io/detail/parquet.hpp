@@ -35,9 +35,11 @@
 namespace cudf::io {
 
 // Forward declaration
+#pragma GCC visibility push(default)
 class parquet_reader_options;
 class parquet_writer_options;
 class chunked_parquet_writer_options;
+#pragma GCC visibility pop
 
 namespace parquet::detail {
 

@@ -22,6 +22,7 @@
 #include <rmm/resource_ref.hpp>
 
 //! NVText APIs
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_edit_distance
@@ -105,3 +106,4 @@ std::unique_ptr<cudf::column> edit_distance_matrix(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

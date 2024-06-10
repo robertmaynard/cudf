@@ -25,6 +25,7 @@
  * @brief Class definition for cudf::lists_column_view
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -137,3 +138,4 @@ class lists_column_view : private column_view {
 };
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

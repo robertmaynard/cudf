@@ -31,6 +31,7 @@
  * individual function documentation to see what aggregations are supported.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup aggregation_factories
@@ -732,3 +733,4 @@ std::unique_ptr<Base> make_merge_tdigest_aggregation(int max_centroids = 1000);
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

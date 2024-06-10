@@ -27,6 +27,7 @@
  * @brief Concrete type definition for dictionary columns.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup dictionary_classes
@@ -218,3 +219,4 @@ using dictionary32 = dictionary_wrapper<int32_t>;  ///< 32-bit integer indexed d
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -22,11 +22,11 @@
 #include <cudf/detail/gather.hpp>
 #include <cudf/detail/iterator.cuh>
 #include <cudf/detail/null_mask.hpp>
-#include <cudf/detail/structs/utilities.hpp>
 #include <cudf/detail/utilities/cast_functor.cuh>
 #include <cudf/reduction.hpp>
 #include <cudf/strings/detail/scan.hpp>
 #include <cudf/structs/detail/scan.hpp>
+#include <cudf/structs/utilities.hpp>
 
 #include <rmm/cuda_stream_view.hpp>
 #include <rmm/exec_policy.hpp>
@@ -196,7 +196,7 @@ std::unique_ptr<column> scan_inclusive(column_view const& input,
     std::for_each(content.children.begin(),
                   content.children.end(),
                   [null_mask, null_count, stream, mr](auto& child) {
-                    child = structs::detail::superimpose_nulls(
+                    child = structs::superimpose_nulls(
                       null_mask, null_count, std::move(child), stream, mr);
                   });
 

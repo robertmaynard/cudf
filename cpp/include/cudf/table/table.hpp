@@ -31,6 +31,7 @@
  * @brief Class definition for cudf::table
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -195,3 +196,4 @@ class table {
 };
 
 }  // namespace cudf
+#pragma GCC visibility pop

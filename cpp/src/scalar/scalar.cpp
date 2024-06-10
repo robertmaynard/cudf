@@ -16,10 +16,10 @@
 
 #include <cudf/column/column.hpp>
 #include <cudf/detail/null_mask.hpp>
-#include <cudf/detail/structs/utilities.hpp>
 #include <cudf/fixed_point/fixed_point.hpp>
 #include <cudf/scalar/scalar.hpp>
 #include <cudf/strings/string_view.hpp>
+#include <cudf/structs/utilities.hpp>
 #include <cudf/utilities/default_stream.hpp>
 
 #include <rmm/cuda_stream_view.hpp>
@@ -593,7 +593,7 @@ table struct_scalar::init_data(table&& data,
   auto const validity = cudf::detail::create_null_mask(
     1, mask_state::ALL_NULL, stream, rmm::mr::get_current_device_resource());
   for (auto& col : data_cols) {
-    col = cudf::structs::detail::superimpose_nulls(
+    col = cudf::structs::superimpose_nulls(
       static_cast<bitmask_type const*>(validity.data()), 1, std::move(col), stream, mr);
   }
 

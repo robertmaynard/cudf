@@ -23,6 +23,7 @@
  * @brief Class definition for cudf::dictionary_column_view
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup dictionary_classes
@@ -125,3 +126,4 @@ namespace dictionary {  // defined here for doxygen output
 }
 
 }  // namespace cudf
+#pragma GCC visibility pop

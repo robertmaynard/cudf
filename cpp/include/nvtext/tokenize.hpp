@@ -21,6 +21,7 @@
 
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_tokenize
@@ -309,3 +310,4 @@ std::unique_ptr<cudf::column> tokenize_with_vocabulary(
 
 /** @} */  // end of tokenize group
 }  // namespace nvtext
+#pragma GCC visibility pop

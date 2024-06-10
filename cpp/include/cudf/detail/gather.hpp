@@ -27,9 +27,9 @@
 
 #include <memory>
 
-namespace cudf {
+#pragma GCC visibility push(default)
 
-namespace detail {
+namespace cudf::detail {
 
 enum class negative_index_policy : bool { ALLOWED, NOT_ALLOWED };
 
@@ -83,5 +83,5 @@ std::unique_ptr<table> gather(table_view const& source_table,
                               rmm::cuda_stream_view stream,
                               rmm::device_async_resource_ref mr);
 
-}  // namespace detail
-}  // namespace cudf
+}  // namespace cudf::detail
+#pragma GCC visibility pop

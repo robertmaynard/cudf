@@ -21,6 +21,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup reshape_transpose
@@ -49,3 +50,4 @@ std::pair<std::unique_ptr<column>, table_view> transpose(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

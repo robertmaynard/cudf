@@ -279,8 +279,13 @@ ConfigureTest(
 
 # ##################################################################################################
 # * io tests --------------------------------------------------------------------------------------
-ConfigureTest(DECOMPRESSION_TEST io/comp/decomp_test.cpp)
-ConfigureTest(ROW_SELECTION_TEST io/row_selection_test.cpp)
+ConfigureTest(DECOMPRESSION_TEST io/comp/decomp_test.cpp 
+  ${CUDF_SOURCE_DIR}/src/io/comp/brotli_dict.cpp
+  ${CUDF_SOURCE_DIR}/src/io/comp/debrotli.cu
+  ${CUDF_SOURCE_DIR}/src/io/comp/gpuinflate.cu
+  ${CUDF_SOURCE_DIR}/src/io/comp/unsnap.cu  
+)
+ConfigureTest(ROW_SELECTION_TEST io/row_selection_test.cpp ${CUDF_SOURCE_DIR}/src/io/utilities/row_selection.cpp)
 
 ConfigureTest(
   CSV_TEST io/csv_test.cpp
@@ -288,7 +293,7 @@ ConfigureTest(
   PERCENT 30
 )
 ConfigureTest(
-  FILE_IO_TEST io/file_io_test.cpp
+  FILE_IO_TEST io/file_io_test.cpp ${CUDF_SOURCE_DIR}/src/io/utilities/file_io_utilities.cpp
   GPUS 1
   PERCENT 30
 )
@@ -311,26 +316,46 @@ ConfigureTest(
   PERCENT 30
 )
 ConfigureTest(
-  JSON_TEST io/json_test.cpp io/json_chunked_reader.cpp
+  JSON_TEST
+  io/json_test.cpp
+  io/json_chunked_reader.cpp
   GPUS 1
   PERCENT 30
 )
 ConfigureTest(JSON_WRITER_TEST io/json_writer.cpp)
-ConfigureTest(JSON_TYPE_CAST_TEST io/json_type_cast_test.cu)
-ConfigureTest(NESTED_JSON_TEST io/nested_json_test.cpp io/json_tree.cpp)
+ConfigureTest(JSON_TYPE_CAST_TEST
+  io/json_type_cast_test.cu
+  ${CUDF_SOURCE_DIR}/src/io/utilities/trie.cu
+  ${CUDF_SOURCE_DIR}/src/io/utilities/data_casting.cu
+)
+ConfigureTest(NESTED_JSON_TEST 
+  io/nested_json_test.cpp 
+  io/json_tree.cpp
+)
 ConfigureTest(ARROW_IO_SOURCE_TEST io/arrow_io_source_test.cpp)
 ConfigureTest(MULTIBYTE_SPLIT_TEST io/text/multibyte_split_test.cpp)
-ConfigureTest(JSON_QUOTE_NORMALIZATION io/json_quote_normalization_test.cpp)
-ConfigureTest(JSON_WHITESPACE_NORMALIZATION io/json_whitespace_normalization_test.cu)
+ConfigureTest(JSON_QUOTE_NORMALIZATION
+  io/json_quote_normalization_test.cpp
+  ${CUDF_SOURCE_DIR}/src/io/json/json_normalization.cu
+)
+ConfigureTest(JSON_WHITESPACE_NORMALIZATION
+  io/json_whitespace_normalization_test.cu
+  ${CUDF_SOURCE_DIR}/src/io/json/json_normalization.cu
+)
 ConfigureTest(
-  DATA_CHUNK_SOURCE_TEST io/text/data_chunk_source_test.cpp
+  DATA_CHUNK_SOURCE_TEST
+  io/text/data_chunk_source_test.cpp
+  ${CUDF_SOURCE_DIR}/src/io/text/bgzip_utils.cpp
   GPUS 1
   PERCENT 30
 )
 target_link_libraries(DATA_CHUNK_SOURCE_TEST PRIVATE ZLIB::ZLIB)
 ConfigureTest(LOGICAL_STACK_TEST io/fst/logical_stack_test.cu)
 ConfigureTest(FST_TEST io/fst/fst_test.cu)
-ConfigureTest(TYPE_INFERENCE_TEST io/type_inference_test.cu)
+ConfigureTest(TYPE_INFERENCE_TEST
+  io/type_inference_test.cu
+  ${CUDF_SOURCE_DIR}/src/io/utilities/trie.cu
+)
 if(CUDF_ENABLE_ARROW_S3)
   target_compile_definitions(ARROW_IO_SOURCE_TEST PRIVATE "S3_ENABLED")
 endif()
@@ -372,6 +397,7 @@ ConfigureTest(
   copying/split_tests.cpp
   copying/utility_tests.cpp
   copying/reverse_tests.cpp
+  ${CUDF_SOURCE_DIR}/src/lists/copying/gather.cu
   GPUS 1
   PERCENT 70
 )
@@ -389,6 +415,7 @@ ConfigureTest(
   utilities_tests/logger_tests.cpp
   utilities_tests/default_stream_tests.cpp
   utilities_tests/type_check_tests.cpp
+  ${CUDF_SOURCE_DIR}/src/io/utilities/base64_utilities.cpp
 )
 
 # ##################################################################################################
@@ -585,7 +612,15 @@ ConfigureTest(JSON_PATH_TEST json/json_tests.cpp)
 
 # ##################################################################################################
 # * structs test ----------------------------------------------------------------------------------
-ConfigureTest(STRUCTS_TEST structs/structs_column_tests.cpp structs/utilities_tests.cpp)
+ConfigureTest(STRUCTS_TEST
+  structs/structs_column_tests.cpp
+  structs/utilities_tests.cpp
+  # ${CUDF_SOURCE_DIR}/src/bitmask/is_element_valid.cpp
+  ${CUDF_SOURCE_DIR}/src/bitmask/null_mask.cu
+  ${CUDF_SOURCE_DIR}/src/copying/purge_nonempty_nulls.cu
+  ${CUDF_SOURCE_DIR}/src/structs/utilities.cpp
+  ${CUDF_SOURCE_DIR}/src/lists/copying/gather.cu
+  )
 
 # ##################################################################################################
 # * nvtext test -----------------------------------------------------------------------------------
@@ -607,8 +642,13 @@ ConfigureTest(
 # ##################################################################################################
 # * bitmask tests ---------------------------------------------------------------------------------
 ConfigureTest(
-  BITMASK_TEST bitmask/valid_if_tests.cu bitmask/set_nullmask_tests.cu bitmask/bitmask_tests.cpp
+  BITMASK_TEST
+  bitmask/valid_if_tests.cu
+  bitmask/set_nullmask_tests.cu
+  bitmask/bitmask_tests.cpp
   bitmask/is_element_valid_tests.cpp
+  ${CUDF_SOURCE_DIR}/src/bitmask/is_element_valid.cpp
+  ${CUDF_SOURCE_DIR}/src/bitmask/null_mask.cu
 )
 
 # ##################################################################################################
@@ -626,6 +666,7 @@ ConfigureTest(
   dictionary/search_test.cpp
   dictionary/set_keys_test.cpp
   dictionary/slice_test.cpp
+  ${CUDF_SOURCE_DIR}/src/dictionary/search.cu
 )
 
 # ##################################################################################################
@@ -665,7 +706,10 @@ ConfigureTest(LABEL_BINS_TEST labeling/label_bins_tests.cpp)
 
 # ##################################################################################################
 # * jit tests ----------------------------------------------------------------------------------
-ConfigureTest(JIT_PARSER_TEST jit/parse_ptx_function.cpp)
+ConfigureTest(JIT_PARSER_TEST
+  jit/parse_ptx_function.cpp
+  ${CUDF_SOURCE_DIR}/src/jit/parser.cpp
+)
 target_include_directories(JIT_PARSER_TEST PRIVATE "$<BUILD_INTERFACE:${CUDF_SOURCE_DIR}/src>")
 
 # ##################################################################################################

@@ -25,6 +25,7 @@
 
 #include <optional>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace strings {
 
@@ -113,3 +114,4 @@ std::unique_ptr<column> replace_with_backrefs(
 
 }  // namespace strings
 }  // namespace cudf
+#pragma GCC visibility pop

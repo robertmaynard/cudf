@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/scalar/scalar_factories.hpp>
+
 #include <cudf/scalar/scalar.hpp>
 
 #include <rmm/cuda_stream_view.hpp>

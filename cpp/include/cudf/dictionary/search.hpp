@@ -21,6 +21,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace dictionary {
 /**
@@ -51,3 +52,4 @@ std::unique_ptr<scalar> get_index(
 /** @} */  // end of group
 }  // namespace dictionary
 }  // namespace cudf
+#pragma GCC visibility pop

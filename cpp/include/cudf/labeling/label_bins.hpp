@@ -24,6 +24,7 @@
 #include <rmm/mr/device/per_device_resource.hpp>
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -80,3 +81,4 @@ std::unique_ptr<column> label_bins(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

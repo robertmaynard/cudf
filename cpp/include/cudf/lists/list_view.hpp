@@ -21,6 +21,7 @@
  * @brief Class definition for cudf::list_view.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -30,3 +31,4 @@ namespace cudf {
 class list_view {};
 
 }  // namespace cudf
+#pragma GCC visibility pop

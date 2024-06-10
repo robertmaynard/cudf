@@ -20,11 +20,11 @@
 #include <cudf/detail/iterator.cuh>
 #include <cudf/detail/nvtx/ranges.hpp>
 #include <cudf/detail/sequence.hpp>
-#include <cudf/detail/structs/utilities.hpp>
 #include <cudf/lists/detail/extract.hpp>
 #include <cudf/lists/detail/gather.cuh>
 #include <cudf/lists/extract.hpp>
 #include <cudf/scalar/scalar_factories.hpp>
+#include <cudf/structs/utilities.hpp>
 #include <cudf/utilities/default_stream.hpp>
 
 #include <rmm/cuda_stream_view.hpp>
@@ -164,7 +164,7 @@ std::unique_ptr<column> extract_list_element_impl(lists_column_view lists_column
   // In such cases, the extracted elements corresponding to these non-empty nulls may not be null.
   // Thus, we need to superimpose nulls from the input column into the output to make sure each
   // input null list always results in a null output row.
-  return cudf::structs::detail::superimpose_nulls(
+  return cudf::structs::superimpose_nulls(
     lists_column.null_mask(), lists_column.null_count(), std::move(output), stream, mr);
 }
 

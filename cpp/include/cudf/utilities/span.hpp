@@ -29,6 +29,7 @@
 #include <limits>
 #include <type_traits>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup utility_span
@@ -504,3 +505,4 @@ using device_2dspan = base_2dspan<T, device_span>;
 
 }  // namespace detail
 }  // namespace cudf
+#pragma GCC visibility pop

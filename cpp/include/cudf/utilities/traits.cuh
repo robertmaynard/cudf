@@ -21,6 +21,7 @@
 
 #include <cuda/std/atomic>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -65,3 +66,4 @@ constexpr inline bool has_atomic_support(data_type type)
 /** @} */
 
 }  // namespace cudf
+#pragma GCC visibility pop

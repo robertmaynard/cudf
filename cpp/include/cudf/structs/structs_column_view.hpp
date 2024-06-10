@@ -26,6 +26,7 @@
  * @brief Class definition for cudf::structs_column_view.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -99,3 +100,4 @@ class structs_column_view : public column_view {
 };         // class structs_column_view;
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

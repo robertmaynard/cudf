@@ -19,11 +19,12 @@
 #include <cudf/detail/null_mask.hpp>
 #include <cudf/detail/nvtx/ranges.hpp>
 #include <cudf/detail/structs/utilities.hpp>
-#include <cudf/detail/unary.hpp>
 #include <cudf/structs/structs_column_view.hpp>
+#include <cudf/structs/utilities.hpp>
 #include <cudf/table/table.hpp>
 #include <cudf/table/table_view.hpp>
 #include <cudf/types.hpp>
+#include <cudf/unary.hpp>
 #include <cudf/utilities/error.hpp>
 #include <cudf/utilities/span.hpp>
 #include <cudf/utilities/traits.hpp>
@@ -33,7 +34,8 @@
 #include <thrust/iterator/counting_iterator.h>
 #include <thrust/iterator/transform_iterator.h>
 
-namespace cudf::structs::detail {
+namespace cudf::structs {
+namespace detail {
 
 /**
  * @copydoc cudf::structs::detail::extract_ordered_struct_children
@@ -146,7 +148,7 @@ struct table_flattener {
     // sure the flattening results are tables having the same number of columns.
 
     if (nullability == column_nullability::FORCE || col.has_nulls()) {
-      validity_as_column.push_back(cudf::detail::is_valid(col, stream, mr));
+      validity_as_column.push_back(cudf::is_valid(col, stream, mr));
       if (col.has_nulls()) {
         // copy bitmask is needed only if the column has null
         validity_as_column.back()->set_null_mask(cudf::detail::copy_bitmask(col, stream, mr),
@@ -225,6 +227,7 @@ namespace {
  * non-empty nulls.
  *
  * @copydoc cudf::structs::detail::superimpose_nulls
+ * @copydoc cudf::structs::superimpose_nulls
  */
 std::unique_ptr<column> superimpose_nulls_no_sanitize(bitmask_type const* null_mask,
                                                       size_type null_count,
@@ -429,5 +432,15 @@ bool contains_null_structs(column_view const& col)
   return (is_struct(col) && col.has_nulls()) ||
          std::any_of(col.child_begin(), col.child_end(), contains_null_structs);
 }
+}  // namespace detail
 
-}  // namespace cudf::structs::detail
+
+std::unique_ptr<column> superimpose_nulls(bitmask_type const* null_mask,
+                                          size_type null_count,
+                                          std::unique_ptr<column>&& input,
+                                          rmm::cuda_stream_view stream,
+                                          rmm::device_async_resource_ref mr)
+{
+  return detail::superimpose_nulls(null_mask, null_count, std::move(input), stream, mr);
+}
+}  // namespace cudf::structs

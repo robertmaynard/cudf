@@ -23,6 +23,7 @@
 
 #include <cstdint>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace ast {
 /**
@@ -553,3 +554,4 @@ class column_name_reference : public expression {
 }  // namespace ast
 
 }  // namespace cudf
+#pragma GCC visibility pop

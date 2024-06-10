@@ -18,6 +18,7 @@
 
 #include <cstdint>
 
+#pragma GCC visibility push(default)
 namespace cudf::io::orc {
 /**
  * @addtogroup io_types
@@ -105,3 +106,4 @@ enum ProtofType : uint8_t {
 
 /** @} */  // end of group
 }  // namespace cudf::io::orc
+#pragma GCC visibility pop

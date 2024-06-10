@@ -933,7 +933,7 @@ std::unique_ptr<column> parse_data(
   auto d_null_count    = rmm::device_scalar<size_type>(null_count, stream);
   auto null_count_data = d_null_count.data();
   if (null_mask.is_empty()) {
-    null_mask = cudf::detail::create_null_mask(col_size, mask_state::ALL_VALID, stream, mr);
+    null_mask = cudf::create_null_mask(col_size, mask_state::ALL_VALID, stream, mr);
   }
 
   // Prepare iterator that returns (string_ptr, string_length)-pairs needed by type conversion

@@ -24,6 +24,7 @@
 #include <memory>
 #include <string>
 
+#pragma GCC visibility push(default)
 namespace cudf::io {
 /**
  * @addtogroup io_datasources
@@ -83,3 +84,4 @@ class arrow_io_source : public datasource {
 
 /** @} */  // end of group
 }  // namespace cudf::io
+#pragma GCC visibility pop

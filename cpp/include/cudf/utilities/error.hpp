@@ -25,6 +25,7 @@
 #include <string>
 #include <type_traits>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup utility_error
@@ -141,6 +142,7 @@ struct data_type_error : public std::invalid_argument, public stacktrace_recorde
 /** @} */
 
 }  // namespace cudf
+#pragma GCC visibility pop
 
 #define STRINGIFY_DETAIL(x) #x                   ///< Stringify a macro argument
 #define CUDF_STRINGIFY(x)   STRINGIFY_DETAIL(x)  ///< Stringify a macro argument
@@ -229,6 +231,7 @@ struct data_type_error : public std::invalid_argument, public stacktrace_recorde
 
 /// @endcond
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace detail {
 // @cond
@@ -252,6 +255,7 @@ inline void throw_cuda_error(cudaError_t error, char const* file, unsigned int l
 // @endcond
 }  // namespace detail
 }  // namespace cudf
+#pragma GCC visibility pop
 
 /**
  * @brief Error checking macro for CUDA runtime API functions.

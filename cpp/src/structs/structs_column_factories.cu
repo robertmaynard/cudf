@@ -15,7 +15,7 @@
  */
 
 #include <cudf/column/column_factories.hpp>
-#include <cudf/detail/structs/utilities.hpp>
+#include <cudf/structs/utilities.hpp>
 #include <cudf/types.hpp>
 
 #include <rmm/cuda_stream_view.hpp>
@@ -46,7 +46,7 @@ std::unique_ptr<cudf::column> make_structs_column(
 
   if (!null_mask.is_empty()) {
     for (auto& child : child_columns) {
-      child = structs::detail::superimpose_nulls(static_cast<bitmask_type const*>(null_mask.data()),
+      child = structs::superimpose_nulls(static_cast<bitmask_type const*>(null_mask.data()),
                                                  null_count,
                                                  std::move(child),
                                                  stream,

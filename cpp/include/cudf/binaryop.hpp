@@ -24,6 +24,7 @@
 
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 
 /**
@@ -282,3 +283,4 @@ void apply_sorting_struct_binary_op(mutable_column_view& out,
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/search.hpp>
+
 #include <cudf/column/column_factories.hpp>
 #include <cudf/detail/nvtx/ranges.hpp>
 #include <cudf/detail/utilities/vector_factories.hpp>

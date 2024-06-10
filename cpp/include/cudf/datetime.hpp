@@ -28,6 +28,7 @@
  * @brief DateTime column APIs.
  */
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace datetime {
 /**
@@ -402,3 +403,4 @@ std::unique_ptr<cudf::column> round_datetimes(
 
 }  // namespace datetime
 }  // namespace cudf
+#pragma GCC visibility pop

@@ -28,6 +28,7 @@
 #include <string>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace io {
 /**
@@ -222,3 +223,4 @@ table_with_metadata read_avro(
 /** @} */  // end of group
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

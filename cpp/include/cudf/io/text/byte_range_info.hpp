@@ -21,6 +21,7 @@
 #include <cstdint>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 namespace io {
 namespace text {
@@ -107,3 +108,4 @@ byte_range_info create_byte_range_info_max();
 }  // namespace text
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

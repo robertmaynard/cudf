@@ -25,6 +25,7 @@
 #include <future>
 #include <memory>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 //! IO interfaces
 namespace io {
@@ -377,3 +378,4 @@ class datasource {
 /** @} */  // end of group
 }  // namespace io
 }  // namespace cudf
+#pragma GCC visibility pop

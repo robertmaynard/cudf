@@ -20,6 +20,7 @@
 
 #include <rmm/resource_ref.hpp>
 
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_jaccard
@@ -79,3 +80,4 @@ std::unique_ptr<cudf::column> jaccard_index(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

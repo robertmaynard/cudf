@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <cudf/filling.hpp>
+
 #include <cudf/column/column.hpp>
 #include <cudf/detail/calendrical_month_sequence.cuh>
 #include <cudf/detail/nvtx/ranges.hpp>

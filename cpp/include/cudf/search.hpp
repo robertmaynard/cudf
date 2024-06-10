@@ -26,6 +26,7 @@
 
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup column_search
@@ -169,3 +170,4 @@ std::unique_ptr<column> contains(
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

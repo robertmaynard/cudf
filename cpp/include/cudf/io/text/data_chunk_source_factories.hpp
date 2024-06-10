@@ -24,6 +24,7 @@
 #include <memory>
 #include <string>
 
+#pragma GCC visibility push(default)
 namespace cudf::io::text {
 
 /**
@@ -85,3 +86,4 @@ std::unique_ptr<data_chunk_source> make_source_from_bgzip_file(std::string_view 
 std::unique_ptr<data_chunk_source> make_source(cudf::string_scalar& data);
 
 }  // namespace cudf::io::text
+#pragma GCC visibility pop

@@ -22,8 +22,7 @@
 #include <rmm/cuda_stream_view.hpp>
 #include <rmm/resource_ref.hpp>
 
-namespace cudf {
-namespace detail {
+namespace cudf::detail {
 
 /**
  * @copydoc cudf::quantile()
@@ -63,5 +62,4 @@ std::unique_ptr<column> percentile_approx(tdigest::tdigest_column_view const& in
                                           rmm::cuda_stream_view stream,
                                           rmm::device_async_resource_ref mr);
 
-}  // namespace detail
-}  // namespace cudf
+}  // namespace cudf::detail

@@ -19,6 +19,7 @@
 #include <cudf/io/datasource.hpp>
 #include <cudf/io/json.hpp>
 #include <cudf/types.hpp>
+#include <cudf/utilities/export.hpp>
 #include <cudf/utilities/span.hpp>
 
 #include <rmm/cuda_stream_view.hpp>
@@ -29,15 +30,18 @@
 
 namespace cudf::io::json::detail {
 
+CUDF_EXPORT
 table_with_metadata read_json(host_span<std::unique_ptr<datasource>> sources,
                               json_reader_options const& reader_opts,
                               rmm::cuda_stream_view stream,
                               rmm::device_async_resource_ref mr);
 
+CUDF_EXPORT
 size_type find_first_delimiter(device_span<char const> d_data,
                                char const delimiter,
                                rmm::cuda_stream_view stream);
 
+CUDF_EXPORT
 size_type find_first_delimiter_in_chunk(host_span<std::unique_ptr<cudf::io::datasource>> sources,
                                         json_reader_options const& reader_opts,
                                         char const delimiter,

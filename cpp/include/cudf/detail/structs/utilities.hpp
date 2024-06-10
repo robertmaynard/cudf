@@ -179,28 +179,6 @@ class flattened_table {
   rmm::device_async_resource_ref mr);
 
 /**
- * @brief Superimpose nulls from a given null mask into the input column, using bitwise AND.
- *
- * This function will recurse through all struct descendants. It is expected that the size of
- * the given null mask in bits is the same as size of the input column.
- *
- * Any null strings/lists in the input (if any) will also be sanitized to make sure nulls in the
- * output always have their sizes equal to 0.
- *
- * @param null_mask Null mask to be applied to the input column
- * @param null_count Null count in the given null mask
- * @param input Column to apply the null mask to
- * @param stream CUDA stream used for device memory operations and kernel launches
- * @param mr Device memory resource used to allocate new device memory
- * @return A new column with potentially new null mask
- */
-[[nodiscard]] std::unique_ptr<column> superimpose_nulls(bitmask_type const* null_mask,
-                                                        size_type null_count,
-                                                        std::unique_ptr<column>&& input,
-                                                        rmm::cuda_stream_view stream,
-                                                        rmm::device_async_resource_ref mr);
-
-/**
  * @brief Push down nulls from the given input column into its children columns, using bitwise AND.
  *
  * This function constructs a new column_view instance equivalent to the input column_view,

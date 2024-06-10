@@ -22,6 +22,7 @@
 #include <rmm/resource_ref.hpp>
 
 //! NVText APIs
+#pragma GCC visibility push(default)
 namespace nvtext {
 /**
  * @addtogroup nvtext_replace
@@ -143,3 +144,4 @@ std::unique_ptr<cudf::column> filter_tokens(
 
 /** @} */  // end of group
 }  // namespace nvtext
+#pragma GCC visibility pop

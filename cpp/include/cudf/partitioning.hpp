@@ -26,6 +26,7 @@
 #include <memory>
 #include <vector>
 
+#pragma GCC visibility push(default)
 namespace cudf {
 /**
  * @addtogroup reorder_partition
@@ -255,3 +256,4 @@ std::pair<std::unique_ptr<cudf::table>, std::vector<cudf::size_type>> round_robi
 
 /** @} */  // end of group
 }  // namespace cudf
+#pragma GCC visibility pop

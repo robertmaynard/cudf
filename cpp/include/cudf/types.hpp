@@ -54,6 +54,7 @@ class device_buffer;
 
 }  // namespace rmm
 
+#pragma GCC visibility push(default)
 namespace cudf {
 // Forward declaration
 class column;
@@ -345,3 +346,4 @@ std::size_t size_of(data_type t);
 
 /** @} */
 }  // namespace cudf
+#pragma GCC visibility pop

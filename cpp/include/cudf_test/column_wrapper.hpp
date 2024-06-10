@@ -1741,7 +1741,7 @@ class lists_column_wrapper : public detail::column_wrapper {
       normalize_column(lists_column_view(col).child(),
                        lists_column_view(expected_hierarchy).child()),
       col.null_count(),
-      cudf::detail::copy_bitmask(
+      cudf::copy_bitmask(
         col, cudf::test::get_default_stream(), rmm::mr::get_current_device_resource()),
       cudf::test::get_default_stream());
   }

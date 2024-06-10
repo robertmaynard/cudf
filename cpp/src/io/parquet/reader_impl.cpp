@@ -23,6 +23,7 @@
 #include <cudf/detail/utilities/stream_pool.hpp>
 #include <cudf/detail/utilities/vector_factories.hpp>
 #include <cudf/strings/detail/utilities.hpp>
+#include <cudf/strings/utilities.hpp>
 
 #include <rmm/resource_ref.hpp>
 
@@ -102,11 +103,11 @@ void reader::impl::decode_page_data(read_mode mode, size_t skip_rows, size_t num
     col_string_sizes = calculate_page_string_offsets();
 
     // check for overflow
-    auto const threshold         = static_cast<size_t>(strings::detail::get_offset64_threshold());
+    auto const threshold         = static_cast<size_t>(strings::get_offset64_threshold());
     auto const has_large_strings = std::any_of(col_string_sizes.cbegin(),
                                                col_string_sizes.cend(),
                                                [=](std::size_t sz) { return sz > threshold; });
-    if (has_large_strings and not strings::detail::is_large_strings_enabled()) {
+    if (has_large_strings and not strings::is_large_strings_enabled()) {
       CUDF_FAIL("String column exceeds the column size limit", std::overflow_error);
     }
 
@@ -361,7 +362,7 @@ void reader::impl::decode_page_data(read_mode mode, size_t skip_rows, size_t num
       } else if (out_buf.type.id() == type_id::STRING) {
         // need to cap off the string offsets column
         auto const sz = static_cast<size_type>(col_string_sizes[idx]);
-        if (sz <= strings::detail::get_offset64_threshold()) {
+        if (sz <= strings::get_offset64_threshold()) {
           CUDF_CUDA_TRY(cudaMemcpyAsync(static_cast<size_type*>(out_buf.data()) + out_buf.size,
                                         &sz,
                                         sizeof(size_type),

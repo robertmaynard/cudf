@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include <cudf/strings/utilities.hpp>
 
 #include "strings/char_types/char_cases.h"
 #include "strings/char_types/char_flags.h"
@@ -36,8 +37,7 @@
 #include <cstdlib>
 #include <string>
 
-namespace cudf {
-namespace strings {
+namespace cudf::strings {
 namespace detail {
 
 /**
@@ -78,8 +78,8 @@ std::unique_ptr<column> create_offsets_child_column(int64_t chars_bytes,
                                                     rmm::cuda_stream_view stream,
                                                     rmm::device_async_resource_ref mr)
 {
-  auto const threshold = get_offset64_threshold();
-  if (!is_large_strings_enabled()) {
+  auto const threshold = strings::get_offset64_threshold();
+  if (!strings::is_large_strings_enabled()) {
     CUDF_EXPECTS(
       chars_bytes < threshold, "Size of output exceeds the column size limit", std::overflow_error);
   }
@@ -147,6 +147,21 @@ special_case_mapping const* get_special_case_mapping_table()
   });
 }
 
+int64_t get_offset_value(cudf::column_view const& offsets,
+                         size_type index,
+                         rmm::cuda_stream_view stream)
+{
+  auto const otid = offsets.type().id();
+  CUDF_EXPECTS(otid == type_id::INT64 || otid == type_id::INT32,
+               "Offsets must be of type INT32 or INT64",
+               std::invalid_argument);
+  return otid == type_id::INT64 ? cudf::detail::get_value<int64_t>(offsets, index, stream)
+                                : cudf::detail::get_value<int32_t>(offsets, index, stream);
+}
+
+}  // namespace detail
+
+
 int64_t get_offset64_threshold()
 {
   auto const threshold = std::getenv("LIBCUDF_LARGE_STRINGS_THRESHOLD");
@@ -162,18 +177,4 @@ bool is_large_strings_enabled()
   return env != nullptr && std::string(env) == "1";
 }
 
-int64_t get_offset_value(cudf::column_view const& offsets,
-                         size_type index,
-                         rmm::cuda_stream_view stream)
-{
-  auto const otid = offsets.type().id();
-  CUDF_EXPECTS(otid == type_id::INT64 || otid == type_id::INT32,
-               "Offsets must be of type INT32 or INT64",
-               std::invalid_argument);
-  return otid == type_id::INT64 ? cudf::detail::get_value<int64_t>(offsets, index, stream)
-                                : cudf::detail::get_value<int32_t>(offsets, index, stream);
-}
-
-}  // namespace detail
-}  // namespace strings
-}  // namespace cudf
+}  // namespace cudf::strings
